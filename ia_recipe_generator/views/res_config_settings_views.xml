@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ia.recipe.generator</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="AI Recipe Generator" string="AI Recipe Generator" name="ia_recipe_generator" groups="base.group_system">
+                    <block title="Google AI (Gemini)" name="ia_recipe_generator_credentials">
+                        <setting string="API Key" help="API key used to authenticate requests to the Google AI (Gemini) API">
+                            <field name="gemini_api_key" password="True" placeholder="e.g. AIzaSy..."/>
+                        </setting>
+                        <setting string="Model" help="Gemini model used for recipe generation. Google periodically retires model IDs — pick 'Custom...' and check https://aistudio.google.com/ for a current one if generation starts failing with a 404.">
+                            <field name="gemini_model"/>
+                            <field name="gemini_model_custom" placeholder="e.g. gemini-2.5-flash" invisible="gemini_model != 'custom'"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

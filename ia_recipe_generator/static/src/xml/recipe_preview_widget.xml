@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ia_recipe_generator.RecipePreviewButton">
+        <button type="button" class="btn btn-secondary o_recipe_preview_button" t-on-click.stop="openPreview">
+            <i class="fa fa-eye"/> Preview
+        </button>
+    </t>
+
+    <t t-name="ia_recipe_generator.RecipePreviewDialog">
+        <Dialog title="props.name" size="'lg'" contentClass="'o_recipe_preview_dialog'">
+            <div class="o_recipe_preview_card">
+                <div class="o_recipe_preview_card_image_wrap">
+                    <img class="o_recipe_preview_card_image" t-att-src="imageSrc" t-att-alt="props.name" t-on-error="onImageError"/>
+                </div>
+                <div class="o_recipe_preview_card_body">
+                    <h3 class="o_recipe_preview_card_title" t-esc="props.name"/>
+                    <div class="o_recipe_preview_card_meta">
+                        <span class="o_recipe_preview_card_time">
+                            <i class="fa fa-clock-o"/> <t t-esc="props.preparationTime"/> min
+                        </span>
+                        <span t-attf-class="o_recipe_preview_card_badge o_recipe_preview_card_badge--{{props.difficulty}}">
+                            <i class="fa fa-signal"/> <t t-esc="difficultyLabel"/>
+                        </span>
+                    </div>
+                    <div class="o_recipe_preview_card_instructions" t-if="props.instructions">
+                        <h4 class="o_recipe_preview_card_instructions_title">
+                            <i class="fa fa-cutlery"/> Preparation Instructions
+                        </h4>
+                        <div class="o_recipe_preview_card_instructions_body" t-out="props.instructions"/>
+                    </div>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary" t-on-click="() => this.props.close()">Close</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>
