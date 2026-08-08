@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="res_partner_extend.ContactCard">
+        <div class="o_contact_card_widget">
+            <div class="o_contact_card_widget_image">
+                <img t-att-src="avatarUrl" alt="Contact avatar"/>
+            </div>
+            <div class="o_contact_card_widget_body">
+                <div class="o_contact_card_widget_name" t-esc="partnerName"/>
+                <div class="o_contact_card_widget_row">
+                    <span class="o_contact_card_widget_label">Edad</span>
+                    <span class="o_contact_card_widget_value o_contact_card_widget_badge" t-esc="age"/>
+                </div>
+                <div class="o_contact_card_widget_row">
+                    <span class="o_contact_card_widget_label">Fecha de nacimiento</span>
+                    <span class="o_contact_card_widget_value" t-esc="birthdateLabel"/>
+                </div>
+            </div>
+            <div class="o_contact_card_widget_qr" t-if="contactUrl">
+                <img t-att-src="qrCodeUrl" alt="QR code del contacto"/>
+                <span class="o_contact_card_widget_qr_caption">Escanea para abrir el contacto</span>
+            </div>
+        </div>
+    </t>
+
+</templates>

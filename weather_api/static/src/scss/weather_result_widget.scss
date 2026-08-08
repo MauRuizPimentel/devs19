@@ -1,0 +1,54 @@
+// Placeholder brand tokens pending real corporate values (see design.md Open Questions).
+$weather-widget-primary: #2c5f8a;
+$weather-widget-accent: #f5a623;
+$weather-widget-bg: #f4f7fa;
+$weather-widget-border-radius: 8px;
+$weather-widget-spacing: 12px;
+$weather-widget-temperature-size: 2.5rem;
+$weather-widget-flag-size: 1.8rem;
+$weather-widget-icon-size: 2rem;
+
+.o_weather_result_widget {
+    display: flex;
+    align-items: center;
+    gap: $weather-widget-spacing * 1.5;
+    padding: $weather-widget-spacing;
+    margin-inline-end: auto;
+    background-color: $weather-widget-bg;
+    border: 1px solid $weather-widget-primary;
+    border-radius: $weather-widget-border-radius;
+
+    .o_weather_result_widget_location {
+        display: flex;
+        align-items: center;
+        gap: $weather-widget-spacing / 2;
+    }
+
+    .o_weather_result_widget_flag {
+        font-size: $weather-widget-flag-size;
+        line-height: 1;
+    }
+
+    .o_weather_result_widget_location_name {
+        font-weight: 600;
+        color: $weather-widget-primary;
+    }
+
+    .o_weather_result_widget_main {
+        display: flex;
+        align-items: center;
+        gap: $weather-widget-spacing;
+    }
+
+    .o_weather_result_widget_temperature {
+        font-size: $weather-widget-temperature-size;
+        font-weight: 700;
+        color: $weather-widget-primary;
+        line-height: 1;
+    }
+
+    .o_weather_result_widget_icon {
+        font-size: $weather-widget-icon-size;
+        color: $weather-widget-accent;
+    }
+}

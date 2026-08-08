@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_contact_card" model="ir.ui.view">
+        <field name="name">res.partner.form.contact.card</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='function']" position="after">
+                <field name="birthdate" required="1" invisible="is_company"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Tarjeta de Contacto" name="contact_card_page">
+                    <widget name="contact_card"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

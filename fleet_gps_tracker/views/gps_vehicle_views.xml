@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="gps_vehicle_view_list" model="ir.ui.view">
+        <field name="name">gps.vehicle.view.list</field>
+        <field name="model">gps.vehicle</field>
+        <field name="arch" type="xml">
+            <list string="Vehículos">
+                <field name="icon" widget="icon_image"/>
+                <field name="name"/>
+                <field name="vehicle_type"/>
+                <field name="latitude"/>
+                <field name="longitude"/>
+                <field name="last_recorded_at"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="gps_vehicle_view_form" model="ir.ui.view">
+        <field name="name">gps.vehicle.view.form</field>
+        <field name="model">gps.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="Vehículo">
+                <header>
+                    <button type="action" name="%(fleet_gps_tracker.gps_simulate_wizard_action)d"
+                            string="Simular datos" class="btn-secondary"
+                            context="{'default_vehicle_id': id}"/>
+                    <button type="action" name="%(fleet_gps_tracker.gps_playback_wizard_action)d"
+                            string="Generar recorrido" class="btn-secondary"
+                            context="{'default_vehicle_id': id}"/>
+                </header>
+                <sheet>
+                    <field name="icon" widget="icon_image" nolabel="1" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre del vehículo"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="vehicle_type"/>
+                    </group>
+                    <group string="Posición Actual">
+                        <field name="latitude" readonly="1"/>
+                        <field name="longitude" readonly="1"/>
+                        <field name="last_recorded_at" readonly="1"/>
+                    </group>
+                    <field name="latitude" widget="gps_vehicle_map" nolabel="1" colspan="2"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="gps_vehicle_action" model="ir.actions.act_window">
+        <field name="name">Vehículos</field>
+        <field name="res_model">gps.vehicle</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

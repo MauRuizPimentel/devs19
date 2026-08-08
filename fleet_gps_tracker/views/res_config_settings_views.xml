@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.fleet.gps.tracker</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Fleet GPS Tracker" string="Fleet GPS Tracker" name="fleet_gps_tracker" groups="base.group_system">
+                    <block title="Google Maps" name="fleet_gps_tracker_google_maps">
+                        <setting string="API Key" help="Clave de la API de Google Maps JavaScript utilizada para mostrar el mapa">
+                            <field name="google_maps_api_key" placeholder="AIza..."/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

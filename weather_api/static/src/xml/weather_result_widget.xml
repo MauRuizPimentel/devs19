@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="weather_api.WeatherResultWidget">
+        <div class="o_weather_result_widget" t-if="result">
+            <div class="o_weather_result_widget_location">
+                <span class="o_weather_result_widget_flag" t-esc="flagEmoji"/>
+                <span class="o_weather_result_widget_location_name" t-esc="result.resolved_location"/>
+            </div>
+            <div class="o_weather_result_widget_main">
+                <span class="o_weather_result_widget_temperature" t-if="roundedTemperature !== null">
+                    <t t-esc="roundedTemperature"/>°C
+                </span>
+                <i t-attf-class="fa {{conditionIconClass}} o_weather_result_widget_icon" t-att-title="result.condition_description"/>
+            </div>
+        </div>
+    </t>
+</templates>

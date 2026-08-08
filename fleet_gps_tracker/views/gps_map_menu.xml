@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="gps_map_overview_action" model="ir.actions.client">
+        <field name="name">Mapa</field>
+        <field name="tag">fleet_gps_tracker.overview_map</field>
+    </record>
+
+    <menuitem id="menu_gps_tracker_root" name="Fleet GPS Tracker" sequence="85"/>
+    <menuitem id="menu_gps_map_overview" name="Mapa" parent="menu_gps_tracker_root"
+              action="gps_map_overview_action" sequence="10"/>
+    <menuitem id="menu_gps_vehicle" name="Vehículos" parent="menu_gps_tracker_root"
+              action="gps_vehicle_action" sequence="20"/>
+    <menuitem id="menu_gps_coordinate" name="Recorridos" parent="menu_gps_tracker_root"
+              action="gps_coordinate_action" sequence="30"/>
+</odoo>

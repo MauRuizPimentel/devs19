@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="fleet_gps_tracker.GpsMapOverviewAction">
+        <div class="o_gps_map_container h-100">
+            <div class="o_gps_map_canvas" t-ref="mapContainer"/>
+            <div class="o_gps_map_status" t-if="state.status !== 'ready'">
+                <span t-if="state.status === 'loading'">Cargando mapa...</span>
+                <span t-if="state.status === 'missing_key'">Configura la clave de Google Maps en Ajustes.</span>
+                <span t-if="state.status === 'error'">No se pudo cargar Google Maps.</span>
+                <span t-if="state.status === 'empty'">Ningún vehículo tiene posición registrada todavía.</span>
+            </div>
+        </div>
+    </t>
+</templates>

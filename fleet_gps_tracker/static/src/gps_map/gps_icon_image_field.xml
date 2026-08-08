@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="fleet_gps_tracker.IconImageField">
+        <img t-if="iconUrl" t-att-src="iconUrl" class="o_gps_vehicle_icon_image" alt="Ícono del vehículo"/>
+    </t>
+</templates>

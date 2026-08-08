@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="weather_lookup_wizard_view_form" model="ir.ui.view">
+        <field name="name">weather.lookup.wizard.view.form</field>
+        <field name="model">weather.lookup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Weather Lookup">
+                <group>
+                    <field name="city_name" placeholder="e.g. Bogotá"/>
+                </group>
+                <footer>
+                    <field name="result_json" invisible="not result_json" widget="weather_result" nolabel="1"/>
+                    <button name="action_fetch_weather" string="Fetch Weather" type="object" class="btn-primary"/>
+                    <button string="Close" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="weather_lookup_wizard_action" model="ir.actions.act_window">
+        <field name="name">Weather Lookup</field>
+        <field name="res_model">weather.lookup.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_weather_lookup_root"
+        name="Weather"
+        sequence="100"/>
+    <menuitem
+        id="menu_weather_lookup"
+        name="Weather Lookup"
+        parent="menu_weather_lookup_root"
+        action="weather_lookup_wizard_action"
+        sequence="10"/>
+</odoo>

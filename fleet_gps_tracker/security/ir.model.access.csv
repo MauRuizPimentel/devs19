@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gps_vehicle_user,gps.vehicle.user,model_gps_vehicle,base.group_user,1,1,1,1
+access_gps_coordinate_user,gps.coordinate.user,model_gps_coordinate,base.group_user,1,1,1,1
+access_gps_simulate_wizard_user,gps.simulate.wizard.user,model_gps_simulate_wizard,base.group_user,1,1,1,1
+access_gps_playback_wizard_user,gps.playback.wizard.user,model_gps_playback_wizard,base.group_user,1,1,1,1

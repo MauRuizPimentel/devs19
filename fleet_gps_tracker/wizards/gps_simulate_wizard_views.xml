@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="gps_simulate_wizard_view_form" model="ir.ui.view">
+        <field name="name">gps.simulate.wizard.view.form</field>
+        <field name="model">gps.simulate.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Simular Datos">
+                <group>
+                    <field name="vehicle_id"/>
+                    <field name="date"/>
+                    <field name="duration_minutes"/>
+                </group>
+                <footer>
+                    <button name="action_simulate" string="Simular datos" type="object" class="btn-primary"/>
+                    <button string="Cancelar" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="gps_simulate_wizard_action" model="ir.actions.act_window">
+        <field name="name">Simular Datos</field>
+        <field name="res_model">gps.simulate.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_vehicle_id': active_id}</field>
+        <field name="binding_model_id" ref="model_gps_vehicle"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+</odoo>
