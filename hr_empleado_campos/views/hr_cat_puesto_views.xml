@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_cat_puesto_view_list" model="ir.ui.view">
+        <field name="name">hr.cat.puesto.list</field>
+        <field name="model">hr.cat.puesto</field>
+        <field name="arch" type="xml">
+            <list string="Cat. Puesto">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_cat_puesto_view_form" model="ir.ui.view">
+        <field name="name">hr.cat.puesto.form</field>
+        <field name="model">hr.cat.puesto</field>
+        <field name="arch" type="xml">
+            <form string="Cat. Puesto">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_cat_puesto_view_search" model="ir.ui.view">
+        <field name="name">hr.cat.puesto.search</field>
+        <field name="model">hr.cat.puesto</field>
+        <field name="arch" type="xml">
+            <search string="Cat. Puesto">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_cat_puesto" model="ir.actions.act_window">
+        <field name="name">catPuiesto</field>
+        <field name="res_model">hr.cat.puesto</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="hr_cat_puesto_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea el primer puesto del catálogo
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_hr_cat_puesto"
+        name="catPuiesto"
+        parent="hr.menu_hr_root"
+        action="action_hr_cat_puesto"
+        groups="hr.group_hr_user"
+        sequence="20"/>
+
+</odoo>
